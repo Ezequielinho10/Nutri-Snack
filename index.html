@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NutriSnack</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:#315c3a;
+    background:#fffdf5;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    width:100%;
+    height:74px;
+
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5%;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:1000;
+
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+
+/* LOGO (imagen + nombre) */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-family:'DM Serif Display',serif;
+
+    font-size:28px;
+
+    color:#4f9148;
+
+    cursor:pointer;
+}
+
+
+.logo img{
+    height:52px;
+    width:auto;
+    display:block;
+}
+
+
+.logo-texto span{
+    color:#e4ae29;
+}
+
+
+nav{
+    display:flex;
+
+    gap:8px;
+}
+
+
+nav a{
+    color:#3c4d3d;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    padding:12px 17px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+nav a:hover{
+    background:#e6b52d;
+
+    color:white;
+}
+
+
+nav a.activo{
+    background:#5a994f;
+
+    color:white;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.pagina{
+    display:none;
+
+    min-height:100vh;
+
+    padding-top:74px;
+}
+
+
+.pagina.activa{
+    display:block;
+}
+
+
+/* =========================
+   INICIO
+========================= */
+
+#inicio{
+    min-height:100vh;
+
+    background:linear-gradient(
+        120deg,
+        #fffdf5,
+        #f5f3d9,
+        #e8f2df
+    );
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:100px 5% 50px;
+
+    gap:50px;
+}
+
+
+#inicio.activa{
+    display:flex;
+}
+
+
+.contenido-inicio{
+    width:50%;
+}
+
+
+.contenido-inicio h1{
+    font-family:'DM Serif Display',serif;
+
+    font-size:76px;
+
+    line-height:.95;
+
+    margin-bottom:20px;
+}
+
+
+.contenido-inicio h1 span{
+    display:block;
+
+    color:#e2aa24;
+}
+
+
+.subtitulo{
+    font-family:'DM Serif Display',serif;
+
+    font-size:23px;
+
+    color:#4d754d;
+
+    margin-bottom:18px;
+}
+
+
+.texto-inicio{
+    color:#58705a;
+
+    line-height:1.9;
+
+    max-width:580px;
+
+    margin-bottom:30px;
+}
+
+
+.boton{
+    display:inline-block;
+
+    background:#5a994f;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+.boton:hover{
+    background:#40753b;
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   IMAGEN DE INICIO
+========================= */
+
+.contenedor-imagen{
+    width:47%;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+
+.imagen-principal{
+    width:480px;
+
+    height:460px;
+
+    background:#edf5df;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 35px rgba(72,100,55,.13);
+}
+
+
+.imagen-principal img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* =========================
+   CONTENIDO GENERAL
+========================= */
+
+.contenido{
+    min-height:calc(100vh - 74px);
+
+    padding:80px 7%;
+}
+
+
+.titulo{
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+
+.titulo h2{
+    font-family:'DM Serif Display',serif;
+
+    font-size:52px;
+
+    color:#315c3a;
+}
+
+
+.titulo p{
+    margin-top:10px;
+
+    color:#6c7b6c;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+#menu{
+    background:#fffdf5;
+}
+
+
+.productos{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+
+.producto{
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 8px 25px rgba(55,80,50,.08);
+
+    transition:.3s;
+}
+
+
+.producto:hover{
+    transform:translateY(-7px);
+}
+
+
+.foto-producto{
+    height:180px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    background:#edf4df;
+
+    margin-bottom:18px;
+}
+
+
+.foto-producto img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.3s;
+}
+
+
+.producto:hover .foto-producto img{
+    transform:scale(1.05);
+}
+
+
+.producto h3{
+    font-size:19px;
+
+    margin-bottom:7px;
+}
+
+
+.producto p{
+    color:#728072;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:10px;
+}
+
+
+.precio{
+    color:#dfa921;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   NOSOTROS
+========================= */
+
+#nosotros{
+    background:#f3eadb;
+}
+
+
+.nosotros-seccion{
+    min-height:calc(100vh - 74px);
+
+    display:grid;
+
+    grid-template-columns:minmax(0,820px);
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:45px 5%;
+}
+
+
+/* IMAGEN NOSOTROS */
+
+.nosotros-imagen{
+    height:520px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#edf4df;
+
+    box-shadow:
+        0 12px 30px rgba(70,80,50,.14);
+}
+
+
+.nosotros-imagen img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* TEXTO NOSOTROS */
+
+.nosotros-texto{
+    min-height:390px;
+
+    padding:48px 40px;
+
+    background:#66845d;
+
+    border-radius:18px;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    box-shadow:
+        0 12px 30px rgba(70,80,50,.14);
+}
+
+
+.nosotros-texto h2{
+    font-family:'DM Serif Display',serif;
+
+    font-size:62px;
+
+    line-height:1.02;
+
+    margin-bottom:22px;
+
+    color:white;
+}
+
+
+.nosotros-texto p{
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:13px;
+
+    color:white;
+}
+
+
+/* =========================
+   PROMOCIONES
+========================= */
+
+#promociones{
+    background:#fffdf5;
+}
+
+
+.promociones{
+    max-width:1050px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+
+.promo{
+    background:#f3f0d8;
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 8px 25px rgba(55,80,50,.08);
+
+    transition:.3s;
+}
+
+
+.promo:hover{
+    transform:translateY(-7px);
+}
+
+
+.foto-promo{
+    width:100%;
+
+    height:190px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    background:#edf4df;
+
+    margin-bottom:18px;
+}
+
+
+.foto-promo img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.3s;
+}
+
+
+.promo:hover .foto-promo img{
+    transform:scale(1.05);
+}
+
+
+.promo h3{
+    color:#315c3a;
+
+    margin:10px 0 8px;
+}
+
+
+.promo p{
+    color:#697769;
+
+    margin-bottom:15px;
+
+    font-size:13px;
+}
+
+
+.promo strong{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    color:#dfa921;
+
+    font-size:22px;
+
+    letter-spacing:.5px;
+}
+
+
+/* =========================
+   CONTACTO
+========================= */
+
+#contacto{
+    background:#eaf3df;
+}
+
+#contacto .contenido{
+    min-height:auto;
+    padding:25px 7% 20px;
+}
+
+
+.contacto{
+    max-width:1100px;
+
+    min-height:auto;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:start;
+}
+
+
+.contacto h2{
+    font-family:'DM Serif Display',serif;
+
+    font-size:52px;
+
+    margin-bottom:20px;
+}
+
+
+.contacto p{
+    color:#637263;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+}
+
+
+form{
+    background:white;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 8px 25px rgba(55,80,50,.08);
+}
+
+
+input,
+textarea{
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:1px solid #d8dfd2;
+
+    border-radius:10px;
+
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+}
+
+
+textarea{
+    height:130px;
+
+    resize:none;
+}
+
+
+button{
+    width:100%;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:30px;
+
+    background:#5a994f;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+button:hover{
+    background:#40753b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+     background:#315c3a;
+     color:white;
+     text-align:center;
+     padding:14px 20px;
+     margin:0;
+     height:68px;
+     display:flex;
+     flex-direction:column;
+     justify-content:center;
+     align-items:center;
+}
+
+
+footer h3{
+     font-family:'DM Serif Display',serif;
+     font-size:22px;
+     margin:0 0 2px;
+     line-height:1.1;
+}
+
+
+footer p{
+     font-size:10px;
+     opacity:.9;
+     margin:1px 0;
+     line-height:1.2;
+}
+
+
+/* =========================
+   PEDIDO
+========================= */
+
+.btn-ordenar{
+    width:100%;
+    margin-top:14px;
+    padding:12px;
+    border:0;
+    border-radius:25px;
+    background:#5a994f;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-ordenar:hover{
+    background:#40753b;
+    transform:translateY(-2px);
+}
+
+
+/* Botón flotante del carrito */
+
+.boton-carrito{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:1500;
+
+    width:auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:13px 22px;
+    border:0;
+    border-radius:40px;
+
+    background:#e2aa24;
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:14px;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.2);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.boton-carrito:hover{
+    background:#c89516;
+    transform:translateY(-3px);
+}
+
+.boton-carrito .contador{
+    background:white;
+    color:#c89516;
+    min-width:24px;
+    height:24px;
+    padding:0 6px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+}
+
+
+/* Aviso al agregar un producto */
+
+.aviso{
+    position:fixed;
+    left:50%;
+    bottom:90px;
+    transform:translate(-50%,20px);
+    z-index:3000;
+
+    background:#315c3a;
+    color:white;
+
+    padding:12px 22px;
+    border-radius:30px;
+
+    font-size:13px;
+    font-weight:600;
+
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+.aviso.visible{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+
+#listaPedido{
+    margin-top:12px;
+    color:#58705a;
+    line-height:1.8;
+}
+
+.item-pedido{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    padding:8px 0;
+    border-bottom:1px solid #e5eadf;
+}
+
+.item-pedido button{
+    width:auto;
+    padding:5px 10px;
+    background:#d96b55;
+    font-size:11px;
+}
+
+.total-pedido{
+    margin-top:15px;
+    text-align:right;
+    color:#dfa921;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.pedido-vacio{
+    text-align:center;
+    padding:10px;
+    color:#728072;
+}
+
+.modal-pedido{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(49,92,58,.45);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-pedido.activo{
+    display:flex;
+}
+
+.contenido-pedido{
+    width:min(500px,100%);
+    max-height:80vh;
+    overflow:auto;
+    background:white;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(55,80,50,.2);
+}
+
+.cerrar-pedido{
+    float:right;
+    border:0;
+    background:#edf4df;
+    color:#315c3a;
+    width:auto;
+    padding:7px 12px;
+    border-radius:50%;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.confirmar-pedido{
+    margin-top:20px;
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:30px;
+    background:#5a994f;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:900px){
+
+    header{
+        height:auto;
+
+        padding:15px;
+
+        flex-direction:column;
+
+        gap:12px;
+    }
+
+
+    .logo img{
+        height:44px;
+    }
+
+
+    nav{
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+
+    nav a{
+        padding:8px 10px;
+
+        font-size:11px;
+    }
+
+
+    #inicio{
+        flex-direction:column;
+
+        text-align:center;
+
+        padding-top:170px;
+    }
+
+
+    .contenido-inicio{
+        width:100%;
+    }
+
+
+    .contenido-inicio h1{
+        font-size:55px;
+    }
+
+
+    .contenedor-imagen{
+        width:100%;
+    }
+
+
+    .imagen-principal{
+        width:350px;
+
+        height:350px;
+    }
+
+
+    .productos,
+    .promociones{
+        grid-template-columns:1fr;
+    }
+
+
+    .nosotros-seccion{
+        grid-template-columns:1fr;
+
+        padding:40px 5%;
+    }
+
+
+    .nosotros-imagen{
+        height:350px;
+    }
+
+
+    .nosotros-texto{
+        padding:35px 25px;
+    }
+
+
+    .nosotros-texto h2{
+        font-size:45px;
+    }
+
+
+    .contacto{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo" onclick="mostrarSeccion('inicio', document.querySelector('nav a'));">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAACDCAIAAAAiZPNcAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmFiMDhkNmE1LTVkZmQtNDNiMS1hNjBhLTY0MjE3YWM1MGRkOAAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNo3CKxnQeVCzbNN31m98hWPgAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MmZlYzA5ZDYtNDllYy00MmMxLWE5NmQtYzhiNzM2YjE2NDZmbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaFO7j0QvvLfH6nb4CoXaGD0AAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIFVeyM5WHPvDFPR/QESSFq3deItz00HJ5MHdXZqQ0n31pGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2hQvkiZ2ZtztO35RP/3V4sIAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFgg1olrrzyCL5kl3Iii1oEj6/z1mOZ1kjVY7BKn80MqpA1kbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTphYjA4ZDZhNS01ZGZkLTQzYjEtYTYwYS02NDIxN2FjNTBkZDgvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDpmNWJjMzQyYi1lMDU4LTQ1OTMtODk5ZC01YTMxMjVkY2MxODRyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggVV7IzlYc+8MU9H9ARJIWrd14i3PTQcnkwd1dmpDSffWiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIOC2ZqhoomBlGuQdVtVKdqj9X9b5OlS0WHVMO6cC7L4IomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIMGbUkNbMVY0/+eVvxDJy6ghlpd8eb/2ZshFoegBjjf0dGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="Logo de NutriSnack">
+        <div class="logo-texto">Nutri<span>Snack</span></div>
+    </div>
+
+
+    <nav>
+
+        <a href="#"
+           class="activo"
+           onclick="mostrarSeccion('inicio', this); return false;">
+            INICIO
+        </a>
+
+
+        <a href="#"
+           onclick="mostrarSeccion('menu', this); return false;">
+            MENÚ
+        </a>
+
+
+        <a href="#"
+           onclick="mostrarSeccion('nosotros', this); return false;">
+            NOSOTROS
+        </a>
+
+
+        <a href="#"
+           onclick="mostrarSeccion('promociones', this); return false;">
+            PROMOCIONES
+        </a>
+
+
+        <a href="#"
+           onclick="mostrarSeccion('contacto', this); return false;">
+            CONTACTO
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section id="inicio" class="pagina activa">
+
+    <div class="contenido-inicio">
+
+        <h1>
+            Nutri
+            <span>Snack</span>
+        </h1>
+
+
+        <div class="subtitulo">
+            Cuida tu alimentación sin dejar de disfrutar
+        </div>
+
+
+        <p class="texto-inicio">
+
+            Bienvenido a NutriSnack, un espacio dedicado
+            a ofrecer snacks saludables elaborados a base
+            de frutas. Descubre opciones prácticas,
+            deliciosas y atractivas para disfrutar.
+
+        </p>
+
+
+        <a href="#"
+           class="boton"
+           onclick="mostrarSeccion('menu', document.querySelectorAll('nav a')[1]); return false;">
+
+            DESCUBRIR MENÚ →
+
+        </a>
+
+    </div>
+
+
+    <div class="contenedor-imagen">
+
+        <div class="imagen-principal">
+
+            <img src="WhatsApp Image 2026-10-09 at 9.12.45 PM.jpeg"
+                 alt="Snacks de frutas NutriSnack">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENÚ
+========================= -->
+
+<section id="menu" class="pagina">
+
+    <div class="contenido">
+
+        <div class="titulo">
+
+            <h2>
+                Nuestro Menú
+            </h2>
+
+        </div>
+
+
+        <div class="productos">
+
+
+            <div class="producto">
+
+                <div class="foto-producto">
+
+                    <img src="Fresas con yogurt.jpg"
+                         alt="Fresas con yogurt">
+
+                </div>
+
+                <h3>
+                    Fresas con yogurt
+                </h3>
+
+                <p>
+                    Fresas acompañadas de yogurt.
+                </p>
+
+                <div class="precio">
+                    $2.50
+                </div>
+                <button type="button" class="btn-ordenar" onclick="agregarPedido('Fresas con yogurt', 2.50)">
+                    ORDENAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="foto-producto">
+
+                    <img src="banana con snack.jpg"
+                         alt="Banana Snack">
+
+                </div>
+
+                <h3>
+                    Banana Snack
+                </h3>
+
+                <p>
+                    Deliciosas rodajas de banana.
+                </p>
+
+                <div class="precio">
+                    $2.00
+                </div>
+                <button type="button" class="btn-ordenar" onclick="agregarPedido('Banana Snack', 2.00)">
+                    ORDENAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="foto-producto">
+
+                    <img src="WhatsApp Image 2026-08-20 at 8.32.24 PM.jpeg"
+                         alt="Piña Tropical">
+
+                </div>
+
+                <h3>
+                    Piña Tropical
+                </h3>
+
+                <p>
+                    Piña fresca para disfrutar.
+                </p>
+
+                <div class="precio">
+                    $2.50
+                </div>
+                <button type="button" class="btn-ordenar" onclick="agregarPedido('Piña Tropical', 2.50)">
+                    ORDENAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="foto-producto">
+
+                    <img src="WhatsApp Image 2026-08-20 at 8.32.25 PM.jpeg"
+                         alt="Mix de Frutas">
+
+                </div>
+
+                <h3>
+                    Mix de Frutas
+                </h3>
+
+                <p>
+                    Combinación de diferentes frutas.
+                </p>
+
+                <div class="precio">
+                    $3.00
+                </div>
+                <button type="button" class="btn-ordenar" onclick="agregarPedido('Mix de Frutas', 3.00)">
+                    ORDENAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="foto-producto">
+
+                    <img src="mango snack.jpg"
+                         alt="Mango Snack">
+
+                </div>
+
+                <h3>
+                    Mango Snack
+                </h3>
+
+                <p>
+                    Mango preparado para disfrutar.
+                </p>
+
+                <div class="precio">
+                    $2.50
+                </div>
+                <button type="button" class="btn-ordenar" onclick="agregarPedido('Mango Snack', 2.50)">
+                    ORDENAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="foto-producto">
+
+                    <img src="sandia fresh.jpg"
+                         alt="Sandía Fresh">
+
+                </div>
+
+                <h3>
+                    Sandía Fresh
+                </h3>
+
+                <p>
+                    Sandía fresca y deliciosa.
+                </p>
+
+                <div class="precio">
+                    $2.00
+                </div>
+                <button type="button" class="btn-ordenar" onclick="agregarPedido('Sandía Fresh', 2.00)">
+                    ORDENAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NOSOTROS
+========================= -->
+
+<section id="nosotros" class="pagina">
+
+    <div class="nosotros-seccion">
+
+
+        <div class="nosotros-texto">
+
+            <h2>
+                Sobre<br>
+                Nosotros
+            </h2>
+
+
+            <p>
+
+                NutriSnack es un negocio dedicado a preparar y
+                ofrecer snacks saludables elaborados a base
+                de frutas frescas.
+
+            </p>
+
+
+            <p>
+
+                Nuestro objetivo es ofrecer opciones
+                prácticas, deliciosas y atractivas para
+                las personas que quieren cuidar su
+                alimentación.
+
+            </p>
+
+
+            <p>
+
+                Creemos que es posible cuidar
+                la alimentación sin dejar de disfrutar
+                alimentos deliciosos.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROMOCIONES
+========================= -->
+
+<section id="promociones" class="pagina">
+
+    <div class="contenido">
+
+        <div class="titulo">
+
+            <h2>
+                Promociones
+            </h2>
+
+            <p>
+                Ofertas especiales de NutriSnack.
+            </p>
+
+        </div>
+
+
+        <div class="promociones">
+
+
+            <!-- PROMOCIÓN 1 -->
+
+            <div class="promo">
+
+                <div class="foto-promo">
+
+                    <img src="banana snack promocion.jpg"
+                         alt="Promoción 2x1 en Banana Snack">
+
+                </div>
+
+                <h3>
+                    Banana Snack
+                </h3>
+
+                <p>
+                    Llévate dos y paga solo uno.
+                </p>
+
+                <strong>
+                    2x1
+                </strong>
+
+            </div>
+
+
+            <!-- PROMOCIÓN 2 -->
+
+            <div class="promo">
+
+                <div class="foto-promo">
+
+                    <img src="3 snacks promocion.jpg"
+                         alt="Descuento por compras de tres snacks o más">
+
+                </div>
+
+                <h3>
+                    Pedido de 3 snacks
+                </h3>
+
+                <p>
+                    Descuento al pedir tres snacks o más.
+                </p>
+
+                <strong>
+                    10% OFF
+                </strong>
+
+            </div>
+
+
+            <!-- PROMOCIÓN 3 -->
+
+            <div class="promo">
+
+                <div class="foto-promo">
+
+                    <img src="promocion 3 de mix fresas.jpg"
+                         alt="Combo de Mix de Frutas y Fresas con yogurt">
+
+                </div>
+
+                <h3>
+                    Combo Mix + Fresas
+                </h3>
+
+                <p>
+                    Mix de Frutas y Fresas con yogurt a precio especial.
+                </p>
+
+                <strong>
+                    $5.00
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section id="contacto" class="pagina">
+
+    <div class="contenido">
+
+        <div class="contacto">
+
+
+            <div>
+
+                <h2>
+                    Contáctanos
+                </h2>
+
+
+                <p>
+                    ¿Quieres comunicarte con NutriSnack?
+                </p>
+
+
+                <p>
+                    📧 nutrisnack@gmail.com
+                </p>
+
+
+                <p>
+                    📱 +503 7000-0000
+                </p>
+
+
+                <p>
+                    📍 El Salvador
+                </p>
+
+            </div>
+
+
+            <form id="formulario">
+
+                <input
+                    type="text"
+                    placeholder="Tu nombre"
+                    required
+                >
+
+
+                <input
+                    type="email"
+                    placeholder="Tu correo"
+                    required
+                >
+
+
+                <textarea
+                    placeholder="Tu mensaje"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    ENVIAR MENSAJE
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BOTÓN FLOTANTE DEL PEDIDO
+========================= -->
+
+<button type="button" class="boton-carrito" onclick="verPedido()">
+    🛒 Mi pedido
+    <span class="contador" id="cantidadPedido">0</span>
+</button>
+
+<div id="aviso" class="aviso"></div>
+
+
+<!-- =========================
+     MODAL DEL PEDIDO
+========================= -->
+
+<div id="modalPedido" class="modal-pedido">
+    <div class="contenido-pedido">
+        <button class="cerrar-pedido" onclick="cerrarPedido()">✕</button>
+
+        <div class="titulo" style="margin-bottom:20px;">
+            <h2 style="font-size:35px;">Mi Pedido</h2>
+            <p>Estos son los productos que seleccionaste.</p>
+        </div>
+
+        <div id="listaPedido"></div>
+
+        <button class="confirmar-pedido" onclick="confirmarPedido()">
+            CONFIRMAR PEDIDO
+        </button>
+    </div>
+</div>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>
+        NutriSnack
+    </h3>
+
+    <p>
+        Cuida tu alimentación sin dejar de disfrutar.
+    </p>
+
+    <p>
+        © 2026 NutriSnack
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   CONFIGURACIÓN
+   Pon aquí tu número de WhatsApp con código de país,
+   sin + ni espacios. Ejemplo: "50371234567"
+   Si lo dejas vacío, el pedido solo se confirma en pantalla.
+========================= */
+
+const NUMERO_WHATSAPP = "";
+
+
+function mostrarSeccion(nombre, boton){
+
+    const paginas =
+        document.querySelectorAll(".pagina");
+
+
+    paginas.forEach(function(pagina){
+
+        pagina.classList.remove("activa");
+
+    });
+
+
+    const paginaElegida =
+        document.getElementById(nombre);
+
+
+    if(paginaElegida){
+
+        paginaElegida.classList.add("activa");
+
+    }
+
+
+    const botones =
+        document.querySelectorAll("nav a");
+
+
+    botones.forEach(function(enlace){
+
+        enlace.classList.remove("activo");
+
+    });
+
+
+    if(boton){
+
+        boton.classList.add("activo");
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+document
+.getElementById("formulario")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    alert(
+        "¡Mensaje enviado correctamente! "
+    );
+
+    this.reset();
+
+});
+
+
+/* =========================
+   AVISO
+========================= */
+
+let temporizadorAviso;
+
+function mostrarAviso(texto){
+    const aviso = document.getElementById("aviso");
+    aviso.textContent = texto;
+    aviso.classList.add("visible");
+
+    clearTimeout(temporizadorAviso);
+    temporizadorAviso = setTimeout(function(){
+        aviso.classList.remove("visible");
+    }, 1800);
+}
+
+
+/* =========================
+   PEDIDOS
+========================= */
+
+let pedido = [];
+
+function agregarPedido(nombre, precio){
+    pedido.push({nombre:nombre, precio:precio});
+    actualizarPedido();
+
+    mostrarAviso(nombre + " se agregó a tu pedido");
+}
+
+function actualizarPedido(){
+    const cantidad = document.getElementById("cantidadPedido");
+    if(cantidad){
+        cantidad.textContent = pedido.length;
+    }
+
+    const lista = document.getElementById("listaPedido");
+    if(!lista) return;
+
+    if(pedido.length === 0){
+        lista.innerHTML = '<div class="pedido-vacio">Todavía no has seleccionado ningún producto.</div>';
+        return;
+    }
+
+    let total = 0;
+
+    lista.innerHTML = pedido.map(function(item, index){
+        total += item.precio;
+
+        return `
+            <div class="item-pedido">
+                <span>${item.nombre} - $${item.precio.toFixed(2)}</span>
+                <button onclick="eliminarPedido(${index})">QUITAR</button>
+            </div>
+        `;
+    }).join("");
+
+    lista.innerHTML += `
+        <div class="total-pedido">
+            Total: $${total.toFixed(2)}
+        </div>
+    `;
+}
+
+function eliminarPedido(index){
+    pedido.splice(index, 1);
+    actualizarPedido();
+}
+
+function verPedido(){
+    actualizarPedido();
+    document.getElementById("modalPedido").classList.add("activo");
+}
+
+function cerrarPedido(){
+    document.getElementById("modalPedido").classList.remove("activo");
+}
+
+function confirmarPedido(){
+    if(pedido.length === 0){
+        alert("Primero selecciona un producto.");
+        return;
+    }
+
+    if(NUMERO_WHATSAPP){
+        let total = 0;
+        let mensaje = "Hola NutriSnack, quiero hacer este pedido:\n\n";
+
+        pedido.forEach(function(item){
+            total += item.precio;
+            mensaje += "- " + item.nombre + " ($" + item.precio.toFixed(2) + ")\n";
+        });
+
+        mensaje += "\nTotal: $" + total.toFixed(2);
+
+        window.open(
+            "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(mensaje),
+            "_blank"
+        );
+    }else{
+        alert("¡Pedido seleccionado correctamente! Gracias por elegir NutriSnack.");
+    }
+
+    pedido = [];
+    actualizarPedido();
+    cerrarPedido();
+}
+
+actualizarPedido();
+
+</script>
+
+
+</body>
+
+</html>
